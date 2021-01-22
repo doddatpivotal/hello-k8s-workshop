@@ -1,4 +1,4 @@
-FROM quay.io/eduk8s/base-environment:master
+FROM harbor.stormsend.tkg-vsphere-lab.winterfell.live/eduk8s/base-image
 
 COPY --chown=1001:0 . /home/eduk8s/
 

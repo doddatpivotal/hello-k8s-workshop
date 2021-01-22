@@ -1,17 +1,17 @@
 apiVersion: training.eduk8s.io/v1alpha2
 kind: Workshop
 metadata:
-  name: lab-markdown-sample
+  name: hello-k8s
 spec:
-  title: Markdown Sample
-  description: A sample workshop using Markdown
-  vendor: eduk8s.io
+  title: Hello Kubernetes
+  description: Introduction to Kubernetes
+  vendor: Dodd Pfeffer
   difficulty: beginner
   duration: 15m
-  url: https://github.com/eduk8s/lab-markdown-sample
+  url: https://github.com/doddatpivotal/hello-k8s-workshop
   content:
-    #image: quay.io/eduk8s/lab-markdown-sample:master
-    files: github.com/eduk8s/lab-markdown-sample
+    image: jdk8-environment:*
+    files: github.com/doddatpivotal/hello-k8s-workshop
   session:
     namespaces:
       budget: small
@@ -21,5 +21,10 @@ spec:
         layout: split
       console:
         enabled: true
+        vendor: octant
       editor:
+        enabled: true
+        plugins:
+          enabled: true
+      docker:
         enabled: true

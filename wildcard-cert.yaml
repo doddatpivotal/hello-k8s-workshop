@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: wildcard-cert
+  namespace: eduk8s
+spec:
+  secretName: wildcard-cert-tls
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  organization:
+  - vmware
+  isCA: false
+  keySize: 2048
+  keyAlgorithm: rsa
+  keyEncoding: pkcs1
+  dnsNames:
+  - '*.riverrun.tkg-vsphere-lab.winterfell.live'
+  issuerRef:
+    name: letsencrypt-contour-cluster-issuer
+    kind: ClusterIssuer

@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-k8s
+spec:
+  selector:
+    matchLabels:
+      app: hello-k8s
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hello-k8s
+    spec:
+      containers:
+        - name: hello-8s
+          image: harbor.dorn.tkg-aws-e2-lab.winterfell.live/hello-k8s/hello-k8s:latest
+          imagePullPolicy: Always

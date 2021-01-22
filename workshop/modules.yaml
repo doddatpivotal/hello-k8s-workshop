@@ -7,6 +7,8 @@ modules:
         exit_sign: Start Workshop
     exercises/01-sample-content:
         name: Sample Content
+    exercises/02-project-setup:
+        name: Introduction to Hello-k8s Spring-boot App
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop

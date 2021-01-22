@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-k8s
+spec:
+  rules:
+  - host: hello-k8s.whiteharbor.tkg-vsphere-haas-456.winterfell.live
+    http:
+      paths:
+      - backend:
+          serviceName: hello-k8s
+          servicePort: 8080
