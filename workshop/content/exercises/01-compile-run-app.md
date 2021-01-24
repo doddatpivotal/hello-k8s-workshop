@@ -25,8 +25,8 @@ file: ~/hello-k8s/src/main/resources/application.yaml
 Test editing file
 ```editor:insert-value-into-yaml
 file: ~/hello-k8s/src/main/resources/application.yaml
-path: hello-k8s.name2
-value: {{ session_namespace }}
+path: hello-k8s.name
+value: here we go {{ session_namespace }}
 ```
 
 ```editor:append-lines-to-file
