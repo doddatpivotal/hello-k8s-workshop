@@ -22,12 +22,12 @@ docker build -t {{ ENV_REGISTRY_PROJECT }}/{{ session_namespace }}:v1 .
 Run the container, mapping the containers port 8080 to the host's port 8080.  Notice the output, this is the container id.  We are asking docker to run this in the background using `-d` flag.
 
 ```execute-1
-docker run -d -p 8080:8080 {{ ENV_REGISTRY_PROJECT }}/hello-k8s/{{ session_namespace }}:v1
+docker run -d -p 8080:8080 {{ ENV_REGISTRY_PROJECT }}/{{ session_namespace }}:v1
 ```
 
 Ask docker for all the running containers.  Notice the container id.
 
-```execute-1
+```execute-2
 docker ps
 ```
 
@@ -39,7 +39,7 @@ docker logs $(docker ps | grep hello-k8s | awk '{print $(1)}')
 
 And let's test the app to ensure it is working as expected.  Notice we now see a host in the output.
 
-```execute-1
+```execute-2
 curl localhost:8080
 ```
 
