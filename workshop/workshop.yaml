@@ -6,6 +6,3 @@ modules:
     - exercises/01-compile-run-app
     - exercises/02-create-image-run-container
     - workshop-summary
-    vars:
-    - name: registry_project
-      value: harbor.stormsend.tkg-vsphere-lab.winterfell.live/hello-k8s

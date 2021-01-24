@@ -15,8 +15,6 @@ Build the docker image giving it the tag of our private harbor registry, project
 
 ```execute-1
 docker build -t {{ ENV_REGISTRY_PROJECT }}/hello-k8s:v1 .
-kubectl version: {{ ENV_KUBECTL_VERSION }}
-
 ```
 
 #### Main Class
