@@ -1,9 +1,20 @@
-Welcome to our sample application.  It is a simple spring-boot app that says hello, reporting the version of the app, and the host it is running on.
+Now let's see how this works as a container.
 
-#### Clone the git repo
+
+#### Dockerfile
+
+The Dockerfile simply copies the packaged jar file and then sets the entry point of the process
+
+```editor:open-file
+file: ~/hello-k8s/Dockerfile
+```
+
+#### Build the docker image
+
+Build the docker image giving it the tag of our private harbor registry, project, and repository name.
 
 ```execute-1
-git clone https://github.com/doddatpivotal/hello-k8s
+docker build -t {{ REGISTRY_PROJECT }}/hello-k8s:v1 .
 ```
 
 #### Main Class

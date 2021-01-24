@@ -4,6 +4,8 @@ modules:
         exit_sign: Setup Environment
     exercises/01-compile-run-app:
         name: Compile and Run App
+    exercises/02-create-image-run-container: 
+        name: Create Image and Run Container
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop
