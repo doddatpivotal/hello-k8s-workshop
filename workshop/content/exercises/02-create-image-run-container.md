@@ -14,7 +14,7 @@ file: ~/hello-k8s/Dockerfile
 Build the docker image giving it the tag of our private harbor registry, project, and repository name.
 
 ```execute-1
-docker build -t {{ REGISTRY_PROJECT }}/hello-k8s:v1 .
+docker build -t {{ ENV_REGISTRY_PROJECT }}/hello-k8s:v1 .
 ```
 
 #### Main Class
