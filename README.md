@@ -43,3 +43,49 @@ k delete -f resources
 
 k apply -f resources
 
+# Install Eduk8s Operator
+
+kubectl apply -k "github.com/eduk8s/eduk8s?ref=master"
+
+# Validate Running
+
+kubectl get all -n eduk8s
+
+# Set ingress domain
+kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_DOMAIN=riverrun.tkg-vsphere-lab.winterfell.live
+
+TODO: Createa a wildcard cert
+
+
+
+
+kubectl apply -f https://raw.githubusercontent.com/eduk8s-labs/lab-k8s-fundamentals/master/resources/workshop.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/eduk8s-labs/lab-k8s-fundamentals/master/resources/training-portal.yaml
+
+kubectl delete -f https://raw.githubusercontent.com/eduk8s/lab-markdown-sample/master/resources/workshop.yaml
+kubectl delete -f https://raw.githubusercontent.com/eduk8s/lab-markdown-sample/master/resources/training-portal.yaml
+
+
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: wildcard-cert
+  namespace: eduk8s
+spec:
+  secretName: wildcard-cert-tls
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  organization:
+  - vmware
+  isCA: false
+  keySize: 2048
+  keyAlgorithm: rsa
+  keyEncoding: pkcs1
+  dnsNames:
+  - '*.riverrun.tkg-vsphere-lab.winterfell.live'
+  issuerRef:
+    name: letsencrypt-contour-cluster-issuer
+    kind: ClusterIssuer
+
+kubectl set env deployment/eduk8s-operator -n eduk8s INGRESS_SECRET=wildcard-cert-tls
