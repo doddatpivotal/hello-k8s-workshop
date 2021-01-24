@@ -5,4 +5,5 @@ modules:
     - workshop-overview
     - exercises/01-compile-run-app
     - exercises/02-create-image-run-container
+    - exercises/03-publish-images
     - workshop-summary

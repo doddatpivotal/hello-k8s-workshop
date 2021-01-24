@@ -14,8 +14,10 @@ spec:
     files: github.com/doddatpivotal/hello-k8s-workshop
   session:
     env:
-      - name: REGISTRY_PROJECT
-        value: harbor.stormsend.tkg-vsphere-lab.winterfell.live/hello-k8s
+      - name: REGISTRY
+        value: harbor.stormsend.tkg-vsphere-lab.winterfell.live
+      - name: PROJECT
+        value: hello-k8s
     namespaces:
       budget: small
     applications:

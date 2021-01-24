@@ -14,7 +14,7 @@ file: ~/hello-k8s/Dockerfile
 Build the docker image giving it the tag of our private harbor registry, project, and repository name.
 
 ```execute-1
-docker build -t {{ ENV_REGISTRY_PROJECT }}/{{ session_namespace }}:v1 .
+docker build -t {{ ENV_REGISTRY }}/{{ ENV_PROJECT }}/{{ session_namespace }}:v1 .
 ```
 
 #### Run and explore the running image
@@ -22,7 +22,7 @@ docker build -t {{ ENV_REGISTRY_PROJECT }}/{{ session_namespace }}:v1 .
 Run the container, mapping the containers port 8080 to the host's port 8080.  Notice the output, this is the container id.  We are asking docker to run this in the background using `-d` flag.
 
 ```execute-1
-docker run -d -p 8080:8080 {{ ENV_REGISTRY_PROJECT }}/{{ session_namespace }}:v1
+docker run -d -p 8080:8080 {{ ENV_REGISTRY }}/{{ ENV_PROJECT }}/{{ session_namespace }}:v1
 ```
 
 Ask docker for all the running containers.  Notice the container id.

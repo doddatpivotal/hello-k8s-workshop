@@ -6,6 +6,8 @@ modules:
         name: Compile and Run App
     exercises/02-create-image-run-container: 
         name: Create Image and Run Container
+    exercises/03-publish-images: 
+        name: Publish Images
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop
