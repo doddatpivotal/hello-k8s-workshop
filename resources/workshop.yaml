@@ -10,7 +10,7 @@ spec:
   duration: 15m
   url: https://github.com/doddatpivotal/hello-k8s-workshop
   content:
-    image: jdk8-environment:*
+    image: jdk11-environment:*
     files: github.com/doddatpivotal/hello-k8s-workshop
   session:
     namespaces:

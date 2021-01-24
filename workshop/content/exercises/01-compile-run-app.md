@@ -22,16 +22,24 @@ Let's set the name to your workshop session.  Or you can manually edit the confi
 file: ~/hello-k8s/src/main/resources/application.yaml
 ```
 
+Test editing file
 ```editor:insert-value-into-yaml
 file: ~/hello-k8s/src/main/resources/application.yaml
-path: hello-k8s.name
+path: hello-k8s.name2
 value: {{ session_namespace }}
+```
+
+```editor:append-lines-to-file
+file: ~/hello-k8s/src/main/resources/application.yaml
+text: |
+    foo: barr
 ```
 
 #### Compile and run the fat jar
 
 ```execute-1
-./mvnw package
+cd hello-k8s
+./mvnw package -D skipTests
 java -jar target/hello-k8s-0.0.1-SNAPSHOT.jar
 ```
 
