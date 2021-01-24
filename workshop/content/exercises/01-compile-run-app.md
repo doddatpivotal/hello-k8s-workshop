@@ -4,6 +4,7 @@ Welcome to our sample application.  It is a simple spring-boot app that says hel
 
 ```execute-1
 git clone https://github.com/doddatpivotal/hello-k8s
+cd hello-k8s
 ```
 
 #### Main Class
@@ -30,9 +31,15 @@ Set the name to your workshop session.  Or you can manually edit the configurati
 
 #### Compile and run the fat jar
 
+Compile the app.
+
 ```execute-1
-cd hello-k8s
 ./mvnw package -DskipTests
+```
+
+Now run the app..
+
+```execute-1
 java -jar target/hello-k8s-0.0.1-SNAPSHOT.jar
 ```
 
