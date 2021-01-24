@@ -3,7 +3,5 @@ name: Hello Kubernetes
 modules:
     activate:
     - workshop-overview
-    - setup-environment
-    - exercises/01-sample-content
-    - exercises/02-project-setup
+    - exercises/01-compile-run-app
     - workshop-summary
