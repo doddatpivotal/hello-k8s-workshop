@@ -16,23 +16,16 @@ file: ~/hello-k8s/src/main/java/com/vmware/tanzu/hellok8s/HelloK8sApplication.ja
 
 #### Personalize the properties
 
-Let's set the name to your workshop session.  Or you can manually edit the configuration with your name.
+Let's personalize the app's configuration.
 
 ```editor:open-file
 file: ~/hello-k8s/src/main/resources/application.yaml
 ```
 
-Test editing file
-```editor:insert-value-into-yaml
-file: ~/hello-k8s/src/main/resources/application.yaml
-path: hello-k8s.name
-value: here we go {{ session_namespace }}
-```
+Set the name to your workshop session.  Or you can manually edit the configuration with your name.
 
-```editor:append-lines-to-file
-file: ~/hello-k8s/src/main/resources/application.yaml
-text: |
-    foo: barr
+```copy
+{{ session_namespace }}
 ```
 
 #### Compile and run the fat jar
