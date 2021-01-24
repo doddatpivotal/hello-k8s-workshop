@@ -14,47 +14,37 @@ file: ~/hello-k8s/Dockerfile
 Build the docker image giving it the tag of our private harbor registry, project, and repository name.
 
 ```execute-1
-docker build -t {{ ENV_REGISTRY_PROJECT }}/hello-k8s:v1 .
+docker build -t {{ ENV_REGISTRY_PROJECT }}/{{ session_namespace }}:v1 .
 ```
 
-#### Main Class
+#### Run and explore the running image
 
-Check out the main class.  A single rest controller that responds to requests at the root.
-
-```editor:open-file
-file: ~/hello-k8s/src/main/java/com/vmware/tanzu/hellok8s/HelloK8sApplication.java
-```
-
-#### Personalize the properties
-
-Let's personalize the app's configuration.
-
-```editor:open-file
-file: ~/hello-k8s/src/main/resources/application.yaml
-```
-
-Set the name to your workshop session.  Or you can manually edit the configuration with your name.
-
-```copy
-{{ session_namespace }}
-```
-
-#### Compile and run the fat jar
+Run the container, mapping the containers port 8080 to the host's port 8080.  Notice the output, this is the container id.  We are asking docker to run this in the background using `-d` flag.
 
 ```execute-1
-cd hello-k8s
-./mvnw package -DskipTests
-java -jar target/hello-k8s-0.0.1-SNAPSHOT.jar
+docker run -d -p 8080:8080 {{ ENV_REGISTRY_PROJECT }}/hello-k8s/{{ session_namespace }}:v1
 ```
 
-And now let's test it out.
+Ask docker for all the running containers.  Notice the container id.
 
-```execute-2
+```execute-1
+docker ps
+```
+
+Just like the running the java app, you can access the logs written to standard output.
+
+```execute-1
+docker logs $(docker ps | grep hello-k8s | awk '{print $(1)}')
+```
+
+And let's test the app to ensure it is working as expected.  Notice we now see a host in the output.
+
+```execute-1
 curl localhost:8080
 ```
 
-Stop the app
+Let's stop the app.
 
 ```execute-1
-<ctrl-c>
+docker stop $(docker ps | grep hello-k8s | awk '{print $(1)}')
 ```
