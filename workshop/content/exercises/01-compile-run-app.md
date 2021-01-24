@@ -19,7 +19,7 @@ echo "execute in terminal 1"
 #### Click text to execute (with target)
 
 ```execute-1
-echo "git clone https://github.com/doddatpivotal/hello-k8s"
+git clone https://github.com/doddatpivotal/hello-k8s
 ```
 
 ```editor:open-file
