@@ -21,3 +21,19 @@ docker login {{ ENV_REGISTRY }} -u admin -p Harbor12345
 ```execute-1
 docker push {{ ENV_REGISTRY }}/{{ ENV_PROJECT }}/{{ session_namespace }}:v1
 ```
+
+#### Create v2 container image an push
+
+Modify the application configuration to version to `v2`
+
+```editor:open-file
+file: ~/hello-k8s/src/main/resources/application.yaml
+```
+
+Now build and publish
+
+```execute-1
+./mvnw package -D skipTests
+docker build -t {{ ENV_REGISTRY }}/{{ ENV_PROJECT }}/{{ session_namespace }}:v2 .
+docker push {{ ENV_REGISTRY }}/{{ ENV_PROJECT }}/{{ session_namespace }}:v2
+```
